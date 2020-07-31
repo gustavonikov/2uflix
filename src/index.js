@@ -16,7 +16,7 @@ ReactDOM.render(
             <Route exact path="/" component={Home} /> {/* pra saber que quando o caminho digitado for ex: www.gugu.com/ a rota direcione para o App */}
             <Route path="/cadastro/video" component={CadastroVideo} />
             <Route path="/cadastro/categoria" component={CadastroCategoria} />
-            <Route component={() => <div>Erro 404</div>} />
+            <Route component={() => <div><h1>Erro 404</h1></div>} />
         </Switch>
 
     </Router>,
