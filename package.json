@@ -24,7 +24,6 @@
     "server:static": "json-server --watch ./src/data/db.json --port 8080",
     "server": "node ./server.js"
   },
-  "type": "commonjs",
   "eslintConfig": {
     "extends": "react-app"
   },
