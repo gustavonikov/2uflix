@@ -24,7 +24,7 @@ module.exports = {
     //'prettier'
   ],
   rules: {
-    'linebreak-style': ['error', 'windows'],
+    'linebreak-style': ['off'],
     'object-curly-newline': ['off'],
     'react/jsx-indent': ['off'],
     'react/jsx-indent-props': ['off'],
