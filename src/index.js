@@ -7,8 +7,8 @@ import {
     Route,
 } from 'react-router-dom';
 import Home from './pages/Home/index';
-import CadastroVideo from './pages/Cadastro/Video';
-import CadastroCategoria from './pages/Cadastro/Categoria';
+import CadastroVideo from './pages/cadastro/Video';
+import CadastroCategoria from './pages/cadastro/Categoria';
 
 ReactDOM.render(
     <Router>
