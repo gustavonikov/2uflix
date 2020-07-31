@@ -1,6 +1,9 @@
 * {
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
+  /*    pra deixar o visual do cadastro no meio, tem q por isso e + no formfield botar o width do input 50%
+    text-align-last: center;
+    text-align: -webkit-center; */
 }
 
 :root {
@@ -23,3 +26,8 @@ body {
 a {
   color: inherit;
 } 
+#root {
+  min-height: calc(100vh - var(--bodyPaddingTop));
+  display: flex;
+  flex-direction: column;
+}

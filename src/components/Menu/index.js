@@ -1,5 +1,6 @@
 //É tudo que vai aparecer na tela inicial da nossa página
 import React from 'react';
+import {Link} from 'react-router-dom'
 import Logo from '../../assets/imgs/Logo.png';
 import './Menu.css';
 import Button from '../Button';
@@ -9,11 +10,11 @@ import Button from '../Button';
 function Menu () {
     return (
         <nav className="Menu"> {/* Pode ser header também, mas como vão ter poucos elementos, pode ser nav = navigation*/}
-            <a href="/">
+            <Link to="/">
             <img className="Logo" src={Logo} alt="2UFLIX Logo"/>
-            </a>
+            </Link>
             
-            <Button as="a" className="ButtonLink" href="/">
+            <Button as={Link} className="ButtonLink" to="/cadastro/video">
                 Novo vídeo
             </Button>
         </nav>
