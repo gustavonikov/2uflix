@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
+import useForm from '../../../hooks/useForm';
 
 function CadastroCategoria() {
     const initialValues = {
@@ -10,72 +11,61 @@ function CadastroCategoria() {
         description: '',
         color: '',
     };
+
+    const { handleChanges, values, clearForm } = useForm(initialValues);
+
     const [Categories, setCategories] = useState([]);
-    const [Values, setValues] = useState(initialValues);
-
-    function setValue(key, value) {
-        setValues({ ...Values,
-            [key]: value,
-        });
-    }
-
-    function handleChanges(eventInfo) {
-        setValue(
-            eventInfo.target.getAttribute('name'),
-            eventInfo.target.value,
-        );
-    }
 
     useEffect(() => {
-        if (window.location.href.includes('localhost')) {
-            const URL = 'http://localhost:8080/categorias';
-            fetch(URL)
-                .then(async (serverResponse) => {
-                    if (serverResponse.ok) {
-                        const response = await serverResponse.json();
-                        setCategories(response);
-                        return;
-                    }
-                    throw new Error('Não foi possível obter os dados');
-                });
-        }
+        const URL_TOP = window.location.hostname.includes('localhost')
+            ? 'http://localhost:8080/categorias'
+            : 'https://touflix.herokuapp.com/categorias';
+        // Ele pega a url e entra com o backend data como parâmetro e armazena o .json na response
+        fetch(URL_TOP)
+            .then(async (serverResponse) => {
+                const response = await serverResponse.json();
+                setCategories([
+                    ...response, // o ... é p pegar tudo que tem lá já e não jogar isso
+                ]);
+            });
     }, []);
 
     return (
         <PageDefault>
-            <h1>Cadastro de Categoria: {Values.name} </h1>
+            <h1>Cadastro de Categoria: {values.name} </h1>
 
             <form onSubmit={function handleSubmit(eventInfo) {
                 eventInfo.preventDefault();
                 setCategories([
                     ...Categories,
-                    Values,
+                    values,
                 ]);
-                setValue({ initialValues });
+
+                clearForm();
             }}
             >
 
                 <FormField
                     label="Nome da Categoria"
-                    name="name"
                     type="text"
-                    value={Values.name}
+                    name="name"
+                    value={values.name}
                     onChange={handleChanges}
                 />
 
                 <FormField
                     label="Descrição"
-                    name="description"
                     type="textarea"
-                    Value={Values.description}
+                    name="description"
+                    value={values.description}
                     onChange={handleChanges}
                 />
 
                 <FormField
                     label="Cor:"
-                    name="color"
                     type="color"
-                    Value={Values.color}
+                    name="color"
+                    value={values.color}
                     onChange={handleChanges}
                 />
 
@@ -86,8 +76,8 @@ function CadastroCategoria() {
             </form>
 
             <ul>
-                {Categories.map((category, indice) => (
-                    <li key={`${category}${indice}`}>
+                {Categories.map((category) => (
+                    <li key={`${category.titulo}`}>
                         {category.titulo}
                     </li>
                 ))}

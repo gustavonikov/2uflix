@@ -1,8 +1,8 @@
-//só é necessário se eu apagar o arquivo Button que utiliza styled-components
+// só é necessário se eu apagar o arquivo Button que utiliza styled-components
 import React from 'react';
 
-function ButtonLink (props) {
-//props => { className: "o que alguém passar", href="/"}
+function ButtonLink(props) {
+// props => { className: "o que alguém passar", href="/"}
     return (
         <a href={props.href} className={props.className}>
             {props.children}
