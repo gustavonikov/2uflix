@@ -9,24 +9,29 @@
   }
   
   .Menu {
+    /* relacionado ao tamanho do Menu */
     width: 100%;
     height: 94px;
     z-index: 100;
-  
+    
+    /* relacionado a organização do conteúdo do Menu */
     display: flex;
     justify-content: space-between;
     align-items: center;
-  
+    
+    /* relacionado ao posicionamento dos componentes na tela, padding, margin, position, etc */
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    padding-left: 5%;
+    padding-left: 5%; /* o espaçamento do padding é sempre em relação ao tamanho do "Pai", ou do elemento pra borda */
     padding-right: 5%;
-  
+    
+    /* relacionado à aparência dos componentes na tela: cores, bordas, etc */
     background: var(--black);
     border-bottom: 2px solid var(--primary);
   }
+
   body {
     --bodyPaddingTop: 94px;
     padding-top: var(--bodyPaddingTop);
@@ -44,13 +49,13 @@
      
   @media (max-width: 800px) {
     a.ButtonLink {
-      position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 0;
       background: var(--primary);
       border-radius: 0;
       border: 0;
+      bottom: 0;
+      left: 0;
+      position: fixed;
+      right: 0;
       text-align: center;
     }
   }
