@@ -1,6 +1,4 @@
-// É o aplicativo, que retorna a função Menu que está no index
 import React, { useEffect, useState } from 'react';
-// import initialData from '../../data/dados_iniciais.json';
 import BannerMain from '../../components/BannerMain';
 import Carousel from '../../components/Carousel';
 import categoriesRepository from '../../repository/categories';
