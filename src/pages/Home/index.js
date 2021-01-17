@@ -3,7 +3,7 @@ import BannerMain from '../../components/BannerMain';
 import Carousel from '../../components/Carousel';
 import categoriesRepository from '../../repository/categories';
 import PageDefault from '../../components/PageDefault';
-import PageDefault from ''
+
 function Home() {
     const [initialData, setInitialData] = useState([]);
 
