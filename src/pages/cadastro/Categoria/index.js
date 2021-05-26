@@ -4,6 +4,9 @@ import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
 import useForm from '../../../hooks/useForm';
+import Form from '../../../components/Form';
+
+import './index.css';
 
 function CadastroCategoria() {
     const initialValues = {
@@ -30,21 +33,21 @@ function CadastroCategoria() {
             });
     }, []);
 
+    function handleSubmit(event) {
+        event.preventDefault();
+        setCategories([
+            ...Categories,
+            values,
+        ]);
+
+        clearForm();
+    }
+
     return (
         <PageDefault>
             <h1>Cadastro de Categoria: {values.name} </h1>
 
-            <form onSubmit={function handleSubmit(eventInfo) {
-                eventInfo.preventDefault();
-                setCategories([
-                    ...Categories,
-                    values,
-                ]);
-
-                clearForm();
-            }}
-            >
-
+            <Form onSubmit={handleSubmit}>
                 <FormField
                     label="Nome da Categoria"
                     type="text"
@@ -69,13 +72,15 @@ function CadastroCategoria() {
                     onChange={handleChanges}
                 />
 
-                <Button>
-                    Cadastrar
-                </Button>
+                <div className="button-wrapper">
+                    <Button>
+                        Cadastrar
+                    </Button>
+                </div>
 
-            </form>
+            </Form>
 
-            <ul>
+            <ul className="categories-list">
                 {Categories.map((category) => (
                     <li key={`${category.titulo}`}>
                         {category.titulo}

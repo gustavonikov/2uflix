@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
 const WrapperFormField = styled.div`
-position: relative;
-  textarea {
-    min-height: 150px;
-  }
-  input[type="color"] {
-    padding-left: 56px;
-  }
+    position: relative;
+    textarea {
+        min-height: 150px;
+    }
+    input[type="color"] {
+        padding-left: 56px;
+    }
 `;
 
 const Label = styled.label``;
@@ -37,6 +37,7 @@ const Input = styled.input`
     color: #F5F5F5;
     display: block;
     width: 100%; /* valor pra deixar no meio depois é 50% */
+
     height: 57px;
     font-size: 18px;
     
@@ -55,9 +56,11 @@ const Input = styled.input`
     &:focus {
         border-bottom-color: var(--primary);
     }
+    
     &:focus:not([type="color"]) + span {
         transform: scale(.6) translateY(-10px);
     }
+
     ${({ hasValue }) => hasValue && css`
         &:not([type="color"]) + span{
             transform: scale(.6) translateY(-10px);

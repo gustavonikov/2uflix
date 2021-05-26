@@ -6,6 +6,9 @@ import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
 import videosRepository from '../../../repository/videos';
 import categoriesRepository from '../../../repository/categories';
+import Form from '../../../components/Form';
+
+import './index.css';
 
 function CadastroVideo() {
     // const history = useHistory();
@@ -17,6 +20,24 @@ function CadastroVideo() {
         category: '',
     });
 
+    function onSubmit(event) {
+        event.preventDefault();
+
+        // eslint-disable-next-line max-len
+        const categoriaEscolhida = categories.find((category) => category.titulo === values.category);
+
+        videosRepository.create({
+            titulo: values.titulo,
+            url: values.url,
+            categoriaId: categoriaEscolhida.id,
+        })
+            .then(() => {
+                console.log('Cadastrou com sucesso!');
+                alert('Seu video foi cadastrado com sucesso!');
+                // history.push('/');
+            });
+    }
+
     useEffect(() => {
         categoriesRepository
             .getAll()
@@ -26,27 +47,10 @@ function CadastroVideo() {
     }, []);
 
     return (
-        <PageDefault>
+        <PageDefault page="video">
             <h1>Cadastro de Video</h1>
 
-            <form onSubmit={(event) => {
-                event.preventDefault();
-
-                // eslint-disable-next-line max-len
-                const categoriaEscolhida = categories.find((category) => category.titulo === values.category);
-
-                videosRepository.create({
-                    titulo: values.titulo,
-                    url: values.url,
-                    categoriaId: categoriaEscolhida.id,
-                })
-                    .then(() => {
-                        console.log('Cadastrou com sucesso!');
-                        alert('Seu video foi cadastrado com sucesso!');
-                        // history.push('/');
-                    });
-            }}
-            >
+            <Form onSubmit={onSubmit}>
                 <FormField
                     label="Título do Vídeo"
                     name="titulo"
@@ -69,16 +73,18 @@ function CadastroVideo() {
                     suggestions={categoryTitles}
                 />
 
-                <Button type="submit">
-          Cadastrar
-                </Button>
-            </form>
+                <div className="button-wrapper">
+                    <Button type="submit">
+                        Cadastrar
+                    </Button>
+                </div>
+            </Form>
 
             <br />
             <br />
 
             <Link to="/cadastro/categoria">
-        Cadastrar Categoria
+                Cadastrar Categoria
             </Link>
         </PageDefault>
     );

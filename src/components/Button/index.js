@@ -12,12 +12,13 @@ const Button = styled.button`
     font-style: normal;
     font-weight: bold;
     padding: 16px 24px;
-    opacity: .5;
     outline: none;
     text-decoration: none;
     transition: opacity .3s;
+
     &:hover,
     &:focus{ 
+        opacity: .6;
     }        
 `;
 

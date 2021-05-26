@@ -8,17 +8,26 @@ const Main = styled.main`
     background-color: var(--black);
     color: var(--white);
     flex:1;
-    padding-top: 50px 5% 0px 5%;
+    padding-top: 50px;
+    padding-left: 5%;
+    padding-right: 5%;
+
+    ${({ page }) => page !== 'home' && css`
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    `}
+
     ${({ paddingAll }) => css`
-        padding: ${paddingAll};
+       padding: ${paddingAll}
     `}
 `;
 
-function PageDefault({ children, paddingAll }) {
+function PageDefault({ children, page, paddingAll }) {
     return (
         <>
             <Menu />
-            <Main paddingAll={paddingAll}>
+            <Main page={page} paddingAll={paddingAll}>
                 {children}
             </Main>
 
@@ -28,12 +37,14 @@ function PageDefault({ children, paddingAll }) {
 }
 
 PageDefault.defaultProps = {
-    paddingAll: 'string',
+    page: '',
+    paddingAll: 0,
 };
 
 PageDefault.propTypes = {
     children: PropTypes.node.isRequired,
-    paddingAll: PropTypes.string,
+    page: PropTypes.string,
+    paddingAll: PropTypes.number,
 };
 
 export default PageDefault;
