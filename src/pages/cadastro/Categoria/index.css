@@ -1,0 +1,9 @@
+.button-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.categories-list {
+    margin-top: 40px;
+}
