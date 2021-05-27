@@ -11,7 +11,6 @@ function Home() {
         // http://localhost:8080/categorias?_embed=videos
         categoriesRepository.getAllWithVideos()
             .then((categoriasComVideos) => {
-                console.log(categoriasComVideos[0].videos[0]);
                 setInitialData(categoriasComVideos);
             })
             .catch((err) => {
@@ -22,7 +21,7 @@ function Home() {
     return (
         <PageDefault paddingAll={0} page="home">
 
-            {initialData.length === 0 && (<div>Loading...</div>)}
+            {initialData.length === 0 && <div>Loading...</div>}
 
             {initialData.map((categoria, indice) => {
                 if (indice === 0) {
