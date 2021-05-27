@@ -1,8 +1,8 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
-import Menu from '../Menu';
 import Footer from '../Footer';
+import NavBar from '../NavBar';
 
 const Main = styled.main`
     background-color: var(--black);
@@ -26,7 +26,7 @@ const Main = styled.main`
 function PageDefault({ children, page, paddingAll }) {
     return (
         <>
-            <Menu />
+            <NavBar page={page} />
             <Main page={page} paddingAll={paddingAll}>
                 {children}
             </Main>
