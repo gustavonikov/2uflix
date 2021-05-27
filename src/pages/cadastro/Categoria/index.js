@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
@@ -7,6 +6,7 @@ import useForm from '../../../hooks/useForm';
 import Form from '../../../components/Form';
 
 import './index.css';
+import GoToHome from '../../../components/GoToHome';
 
 function CadastroCategoria() {
     const initialValues = {
@@ -88,10 +88,7 @@ function CadastroCategoria() {
                 ))}
             </ul>
 
-            <Link to="/">
-                Ir para a página inicial
-            </Link>
-
+            <GoToHome />
         </PageDefault>
 
     );
