@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Logo from '../../assets/imgs/Logo.png';
-import './index.css';
 import Button from '../Button';
+import './index.css';
 
 function NavBar({ page }) {
     return (

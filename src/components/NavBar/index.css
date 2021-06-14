@@ -1,6 +1,6 @@
 /* Faz toda a parte de estilização do Menu que é importado no index.js do Menu*/
 .Logo {
-    max-width: 168px;
+    max-width: 140px;
   }
 
   @media (max-width: 800px) {
@@ -47,6 +47,7 @@
       height: 40px;
       justify-content: center;
     }
+
     body {
       --bodyPaddingTop: 40px;
       padding-top: var(--bodyPaddingTop);
