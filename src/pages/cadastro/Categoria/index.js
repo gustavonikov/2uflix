@@ -4,9 +4,9 @@ import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
 import useForm from '../../../hooks/useForm';
 import Form from '../../../components/Form';
+import GoToHome from '../../../components/GoToHome';
 
 import './index.css';
-import GoToHome from '../../../components/GoToHome';
 
 function CadastroCategoria() {
     const initialValues = {
@@ -79,7 +79,7 @@ function CadastroCategoria() {
                 </div>
 
             </Form>
-
+            <h3 className="existents-categories">Categorias existentes:</h3>
             <ul className="categories-list">
                 {Categories.map((category) => (
                     <li key={`${category.titulo}`}>
