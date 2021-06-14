@@ -8,9 +8,11 @@ function useForm(initialValues) {
             [key]: value,
         });
     }
+
     function clearForm() {
         setValues(initialValues);
     }
+
     function handleChanges(eventInfo) {
         setValue(
             eventInfo.target.getAttribute('name'),
